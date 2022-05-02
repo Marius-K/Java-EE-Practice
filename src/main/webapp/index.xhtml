@@ -6,16 +6,46 @@
 >
 <h:head/>
 <h:body>
-    <h2>Teams:</h2>
-    <ol>
-        <ui:repeat value="#{teams.allTeams}" var="team">
-            <li><h:link value="#{team.name}" outcome="players?teamId=#{team.id}" /></li>
-        </ui:repeat>
-    </ol>
-    <h:form>
-        <h:inputText value="#{teams.teamToCreate.name}" required="true" />
-        <h:commandButton value="Add new team" actionListener="#{teams.createTeam}" action="index?faces-redirect=true"/>
-    </h:form>
-    <h:link outcome="myBatis/teams" value="MyBatis implementation"/>
+    <h1>Employee management system</h1>
+    <table>
+        <tr>
+            <td style="font-weight: bold; font-size: 1.5em">
+                Departments
+            </td>
+            <td style="font-weight: bold; font-size: 1.5em">
+                Positions
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ol>
+                    <ui:repeat value="#{departments.departmentList}" var="department">
+                        <li><h:link value="#{department.name}" outcome="employees?departmentId=#{department.id}" /></li>
+                    </ui:repeat>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                    <ui:repeat value="#{positions.positionList}" var="position">
+                        <li>#{position.name}</li>
+                    </ui:repeat>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:form>
+                    <h:inputText value="#{departments.newDepartment.name}" required="true" />
+                    <h:commandButton value="Create new department" actionListener="#{departments.createDepartment}" action="index?faces-redirect=true"/>
+                </h:form>
+            </td>
+            <td>
+                <h:form>
+                    <h:inputText value="#{positions.newPosition.name}" required="true" />
+                    <h:commandButton value="Create new position" actionListener="#{positions.createPosition}" action="index?faces-redirect=true"/>
+                </h:form>
+            </td>
+        </tr>
+    </table>
 </h:body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h1>Employee management system</h1>
+    <h2>#{departmentEmployees.department.name} employees:</h2>
+    <ol>
+        <ui:repeat value="#{departmentEmployees.department.employees}" var="employee">
+            <li>
+                <h:link value="#{employee.firstName} #{employee.lastName}"
+                        outcome="employeeInfo?employeeId=#{employee.id}" />
+            </li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="First name" value="#{departmentEmployees.newEmployee.firstName}" required="true" />
+        <h:inputText a:placeholder="Last name" value="#{departmentEmployees.newEmployee.lastName}" required="true" />
+        <h:commandButton value="Add employee to department"
+                         actionListener="#{departmentEmployees.createEmployee}"
+                         action="#{'employees?faces-redirect=true&amp;departmentId='.concat(departmentEmployees.department.id)}">
+            <f:param name="departmentId" value="#{departmentEmployees.department.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="index" value="Back"/>
+</h:body>
+</html>
