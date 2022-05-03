@@ -26,6 +26,9 @@
             <f:param name="departmentId" value="#{departmentEmployees.department.id}" />
         </h:commandButton>
     </h:form>
+    <h:link outcome="employees-mybatis?departmentId=#{departmentEmployees.department.id}"
+            value="MyBatis version"/>
+    <br/>
     <h:link outcome="index" value="Back"/>
 </h:body>
 </html>

@@ -40,8 +40,6 @@ public class EmployeeInfo implements Serializable {
         Integer employeeId = Integer.parseInt(requestParameters.get("employeeId"));
         employee = employeesDAO.find(employeeId);
         positionList = positionsDAO.getAll();
-        System.out.println(positionList);
-        System.out.println(positionList.isEmpty());
     }
 
     @Transactional
