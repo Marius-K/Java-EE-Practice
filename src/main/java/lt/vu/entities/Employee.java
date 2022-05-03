@@ -34,7 +34,7 @@ public class Employee implements Serializable {
     private String lastName;
 
     @Size(max = 50)
-    @Column(name = "LOGIN_NAME")
+    @Column(name = "LOGIN_NAME", unique = true)
     private String loginName;
 
     @ManyToOne
