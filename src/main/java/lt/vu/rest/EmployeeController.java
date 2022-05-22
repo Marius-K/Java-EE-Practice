@@ -90,7 +90,11 @@ public class EmployeeController {
             if (department == null) {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException exception) {
 
+            }
             employee.setFirstName(employeeDto.getFirstName());
             employee.setLastName(employeeDto.getLastName());
             employee.setLoginName(employeeDto.getLoginName());
