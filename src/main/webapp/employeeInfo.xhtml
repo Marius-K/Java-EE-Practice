@@ -29,6 +29,13 @@
         </div>
         <h:outputText value="Value was already modified by other user. If you want to override it - try again" rendered="#{param['error'] == 'optimistic-lock-exception'}" />
     </h:form>
+    <h:form>
+        <h:outputText value="#{generateLoginName.loginGenerationStatus}" />
+        <h:commandButton value="Suggest login name" action="#{generateLoginName.generate()}"
+                         disabled="#{generateLoginName.loginNameGeneratorRunning}">
+            <f:param name="employeeId" value="#{employeeInfo.employee.id}" />
+        </h:commandButton>
+    </h:form>
     <h:panelGroup rendered="#{not empty employeeInfo.employee.positions}">
         <ui:repeat value="#{employeeInfo.employee.positions}" var="position">
             <p>#{position.name}</p>

@@ -41,6 +41,10 @@ public class Employee implements Serializable {
     @JoinColumn(name="DEPARTMENT_ID")
     private Department department;
 
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @ManyToMany(mappedBy = "employees", fetch = FetchType.EAGER)
     private List<Position> positions;
 
