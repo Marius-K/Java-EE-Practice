@@ -4,6 +4,7 @@ import lt.vu.entities.Employee;
 import lt.vu.interceptors.LoggedInvocation;
 import lt.vu.persistence.EmployeesDAO;
 import lt.vu.services.LoginNameGenerator;
+import lt.vu.services.interfaces.ILoginNameGenerator;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -18,7 +19,7 @@ import java.util.concurrent.ExecutionException;
 @Named
 public class GenerateLoginName implements Serializable {
     @Inject
-    private LoginNameGenerator loginNameGenerator;
+    private ILoginNameGenerator loginNameGenerator;
 
     @Inject
     private EmployeesDAO employeesDAO;

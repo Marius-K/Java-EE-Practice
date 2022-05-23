@@ -12,4 +12,7 @@
     <decorators>
         <class>lt.vu.decorators.GenerateLoginNameDecorator</class>
     </decorators>
+<!--    <alternatives>-->
+<!--        <class>lt.vu.services.DisabledLoginNameGenerator</class>-->
+<!--    </alternatives>-->
 </beans>
